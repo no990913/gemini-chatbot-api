@@ -1,0 +1,337 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial Rounded MT Bold', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #a1c7ff 0%, #8ab6ff 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.container {
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #2547be;
+    text-shadow: 3px 3px 0 #FFD700;
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+    animation: bounce 2s infinite;
+}
+
+.cat-container {
+    position: relative;
+    margin: 0 auto;
+    width: 400px;
+    height: 400px;
+}
+
+/* Cat body */
+.cat {
+    position: absolute;
+    width: 200px;
+    height: 150px;
+    background: linear-gradient(135deg, #2547be 0%, #3a5ce0 100%);
+    border-radius: 50% 50% 40% 40%;
+    top: 180px;
+    left: 100px;
+    animation: purr 4s infinite ease-in-out;
+}
+
+/* Cat head */
+.head {
+    position: absolute;
+    width: 140px;
+    height: 130px;
+    background: linear-gradient(135deg, #2547be 0%, #3a5ce0 100%);
+    border-radius: 50%;
+    top: 130px;
+    left: 130px;
+    z-index: 2;
+    animation: headMove 6s infinite ease-in-out;
+}
+
+/* Cat ears */
+.ear {
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #2547be;
+    z-index: 1;
+}
+
+.ear::before {
+    content: '';
+    position: absolute;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 30px solid #FFD700;
+    top: 5px;
+    left: -15px;
+}
+
+.ear.left {
+    top: 110px;
+    left: 140px;
+    transform: rotate(-20deg);
+    animation: earTwitchLeft 4s infinite;
+}
+
+.ear.right {
+    top: 110px;
+    left: 220px;
+    transform: rotate(20deg);
+    animation: earTwitchRight 4s infinite;
+}
+
+/* Cat eyes */
+.eye {
+    position: absolute;
+    width: 25px;
+    height: 35px;
+    background: #fff;
+    border-radius: 50%;
+    top: 160px;
+    animation: blink 5s infinite;
+}
+
+.eye::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: #000;
+    border-radius: 50%;
+    top: 10px;
+    left: 5px;
+}
+
+.eye.left {
+    left: 150px;
+}
+
+.eye.right {
+    left: 225px;
+}
+
+/* Cat nose */
+.nose {
+    position: absolute;
+    width: 20px;
+    height: 12px;
+    background: #FFD700;
+    border-radius: 50%;
+    top: 185px;
+    left: 190px;
+    z-index: 3;
+    animation: glow 3s infinite;
+}
+
+/* Cat mouth */
+.mouth {
+    position: absolute;
+    width: 20px;
+    height: 10px;
+    border-radius: 0 0 10px 10px;
+    background: #ff6b6b;
+    top: 195px;
+    left: 190px;
+    z-index: 3;
+}
+
+/* Cat paws */
+.paw {
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    background: #2547be;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.paw.front.left {
+    top: 270px;
+    left: 120px;
+    animation: pawLeft 7s infinite;
+}
+
+.paw.front.right {
+    top: 270px;
+    left: 240px;
+    animation: pawRight 7s infinite;
+}
+
+.paw.back {
+    width: 45px;
+    height: 35px;
+    top: 290px;
+}
+
+.paw.back.left {
+    left: 80px;
+}
+
+.paw.back.right {
+    left: 275px;
+}
+
+/* Cat tail */
+.tail {
+    position: absolute;
+    width: 25px;
+    height: 120px;
+    background: linear-gradient(to top, #2547be 0%, #3a5ce0 100%);
+    border-radius: 20px;
+    top: 180px;
+    left: 60px;
+    transform-origin: top center;
+    animation: tailWag 3s infinite ease-in-out;
+}
+
+/* Decorative elements */
+.bubble {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.bubble:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    top: 50px;
+    left: 100px;
+    animation-delay: 0s;
+}
+
+.bubble:nth-child(2) {
+    width: 25px;
+    height: 25px;
+    top: 80px;
+    left: 300px;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(3) {
+    width: 30px;
+    height: 30px;
+    top: 30px;
+    left: 250px;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(4) {
+    width: 20px;
+    height: 20px;
+    top: 70px;
+    left: 150px;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(5) {
+    width: 35px;
+    height: 35px;
+    top: 40px;
+    left: 350px;
+    animation-delay: 4s;
+}
+
+.floor {
+    position: absolute;
+    width: 100%;
+    height: 50px;
+    background: #FFD700;
+    bottom: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Animations */
+@keyframes purr {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(-5px) rotate(0.5deg); }
+    50% { transform: translateY(0) rotate(0); }
+    75% { transform: translateY(-5px) rotate(-0.5deg); }
+}
+
+@keyframes headMove {
+    0%, 100% { transform: translateY(0) rotate(0); }
+    25% { transform: translateY(3px) rotate(1deg); }
+    50% { transform: translateY(0) rotate(0); }
+    75% { transform: translateY(3px) rotate(-1deg); }
+}
+
+@keyframes earTwitchLeft {
+    0%, 100% { transform: rotate(-20deg); }
+    50% { transform: rotate(-25deg); }
+}
+
+@keyframes earTwitchRight {
+    0%, 100% { transform: rotate(20deg); }
+    50% { transform: rotate(25deg); }
+}
+
+@keyframes blink {
+    0%, 95%, 98%, 100% { height: 35px; }
+    96%, 97% { height: 5px; }
+}
+
+@keyframes tailWag {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(15deg); }
+    75% { transform: rotate(-15deg); }
+}
+
+@keyframes pawLeft {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes pawRight {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    25% { transform: translateY(-20px) translateX(10px); }
+    50% { transform: translateY(-40px) translateX(-10px); }
+    75% { transform: translateY(-20px) translateX(10px); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 5px #FFD700; }
+    50% { box-shadow: 0 0 15px #FFD700; }
+}
+
+.message {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    border-radius: 15px;
+    display: inline-block;
+    animation: purr 4s infinite;
+}
+
+.message p {
+    color: #2547be;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
